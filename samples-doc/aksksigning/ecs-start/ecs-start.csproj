@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net6.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
+    <RootNamespace>sdk_request</RootNamespace>
+    <AssemblyName>sdk-request</AssemblyName>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\otc-api-sign-sdk\otc-api-sign-sdk.csproj" />
+  </ItemGroup>
+
+</Project>

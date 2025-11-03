@@ -1,0 +1,8 @@
+local-dotnet
+bin/
+obj/
+dotnet-install.sh
+build
+# Ignore NuGet Packages
+*.nupkg
+.tox

@@ -1,0 +1,31 @@
+{
+  "skipDirty": true,
+  "silent": false,
+  "projects": [
+      {
+          "name": "otc-api-sign-sdk-core",
+          "path": "otc-api-sign-sdk-core/src",
+          "tagTemplate": "v{version}",
+          "changelog": {
+              "header": "Changelog of otc-api-sign-sdk",
+              "sections": [
+                  {
+                      "type": "feat",
+                      "section": "✨ Features",
+                      "hidden": false
+                  },
+                  {
+                      "type": "fix",
+                      "section": "🐛 Bug Fixes",
+                      "hidden": false
+                  },
+                  {
+                      "type": "perf",
+                      "section": "🚀 Performance",
+                      "hidden": false
+                  }
+              ]
+          }
+      }
+  ]
+}

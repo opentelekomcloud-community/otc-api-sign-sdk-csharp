@@ -9,7 +9,7 @@ using System.Text;
 
 // OTC API Signature
 
-namespace OTC_API_SIGN_SDK
+namespace OpenTelekomCloud.API.Signing.Core
 {
   public class HttpRequest
   {

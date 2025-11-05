@@ -41,3 +41,18 @@ Installation using NuGet:
 
    TBD...
 
+
+
+Troubleshooting C#
+-------------------
+
+
+Error: "No usable version of libssl was found"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+   :caption: dotnet add package
+
+   wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb
+   sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb`
+

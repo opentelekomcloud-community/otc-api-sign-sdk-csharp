@@ -1,0 +1,81 @@
+<Project>
+
+  <PropertyGroup>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net8.0;net6.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
+    <NuGetAudit>false</NuGetAudit>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CopyrightYear>$([System.DateTime]::UtcNow.ToString(yyyy))</CopyrightYear>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)otc-api-sign.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+
+    <Company>T-Systems International GmbH</Company>
+    <Authors>OpenTelekomCloud-Community, PaaS Squad</Authors>
+    <Copyright>Copyright © T-Systems International GmbH $(CopyrightYear)</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>true</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCompanyAttribute>true</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute> -->
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+
+    <!-- <PackageVersionCommon>1.0.0-local</PackageVersionCommon> -->
+
+  </PropertyGroup>
+
+  <PropertyGroup>
+
+    <OutputType>Library</OutputType>
+
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageProjectUrl>https://github.com/opentelekomcloud-community/otc-api-sign-sdk-csharp</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublicKey>
+      00240000048000009400000006020000002400005253413100040000010001006f6986175a799d815ba3edf302f9cb84e9c20a9883bca7b995c5f65fb4d90693a404f5ea5e8c8afb9129d79c647b30a4fc094f8706c358fb8a70bcb475f06e605ae0f2d4367260d8fb85fbbe7f7456b7c6b6def4afabb5073bfb5144eb73d7a03bd552fdc52ac2f29b96ac20089efac235114829ceb57029ee4588853df7b0e1
+    </PublicKey>
+
+    <!-- Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+    <!-- Embed source files that are not tracked by the source control manager in the PDB -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageIcon>apig.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\images\apig.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

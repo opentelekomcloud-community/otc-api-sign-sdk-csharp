@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\buildtools\common.props" />
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+
+    <AssemblyTitle>OpenTelekomCloud.API.Signing.Core</AssemblyTitle>
+    <AssemblyName>OpenTelekomCloud.API.Signing.Core</AssemblyName>
+
+    <VersionBuild>$([System.DateTime]::UtcNow.DayOfYear.ToString("F0"))</VersionBuild>
+		<VersionRevision>$([System.DateTime]::UtcNow.TimeOfDay.TotalMinutes.ToString("F0"))</VersionRevision>
+
+    <VersionPrefix Condition="'$(Configuration)' == 'Release'">$(Version)</VersionPrefix>
+		<VersionPrefix Condition="'$(Configuration)' == 'Debug'">$(Version)$(VersionBuild)-dev.$(VersionRevision)</VersionPrefix>
+    
+    <Description>OpenTelekomCloud-Community API signing core package.</Description>
+
+    <RootNamespace>OpenTelekomCloud.API.Signing.Core</RootNamespace>
+
+    <PackageId>OpenTelekomCloud.API.Signing.Core</PackageId>
+    <PackageTags>OpenTelekomCloud;OTC</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+  </PropertyGroup>
+
+</Project>

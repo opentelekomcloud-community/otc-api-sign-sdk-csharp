@@ -4,7 +4,7 @@ using System.Net;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
-using OTC_API_SIGN_SDK;
+using OpenTelekomCloud.API.Signing.Core;
 
 namespace DEMO
 {

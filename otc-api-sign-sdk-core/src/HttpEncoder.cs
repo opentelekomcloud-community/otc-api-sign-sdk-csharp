@@ -1,4 +1,4 @@
-﻿namespace OTC_API_SIGN_SDK
+﻿namespace OpenTelekomCloud.API.Signing.Core
 {
   using System;
   using System.Text;

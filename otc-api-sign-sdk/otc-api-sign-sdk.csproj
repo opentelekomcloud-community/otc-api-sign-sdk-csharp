@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>net6.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
-    <RootNamespace>OTC_API_SIGN_SDK</RootNamespace>
-  </PropertyGroup>
-
-</Project>

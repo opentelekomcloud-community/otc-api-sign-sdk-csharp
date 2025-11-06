@@ -7,6 +7,8 @@ Installation
 
 The latest state of the module can be installed directly from the GitHub repository.
 
+TBD.
+
 
 Install dotnet on Ubuntu
 ------------------------
@@ -18,19 +20,25 @@ Install dotnet on Ubuntu
 
     chmod +x ./dotnet-install.sh 
 
-    ./dotnet-install.sh --channel 6.0 --install-dir local-dotnet --skip-non-versioned-files
+    mkdir -p ~/dotnet
 
-    ./dotnet-install.sh --channel 3.1 --install-dir local-dotnet --skip-non-versioned-files
+    ./dotnet-install.sh --channel 8.0 --install-dir ~/dotnet --skip-non-versioned-files
 
-    ./dotnet-install.sh --channel 2.1 --install-dir local-dotnet --skip-non-versioned-files
+    ./dotnet-install.sh --channel 6.0 --install-dir ~/dotnet --skip-non-versioned-files
+
+    ./dotnet-install.sh --channel 3.1 --install-dir ~/dotnet --skip-non-versioned-files
+
+    ./dotnet-install.sh --channel 2.1 --install-dir ~/dotnet --skip-non-versioned-files
+
+    export DOTNET_ROOT=~/dotnet
+    export PATH=$DOTNET_ROOT:$PATH
 
 to build use
 
 .. code-block:: shell
    :caption: install dotnet
 
-    ./local-dotnet/dotnet build
-
+    dotnet build
 
 
 Installation using NuGet:

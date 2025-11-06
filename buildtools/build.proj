@@ -2,18 +2,21 @@
 <Project ToolsVersion="14.0" DefaultTargets="full-build"
   xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Import Project="./common.props" />
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net6.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
+    <NuGetAudit>false</NuGetAudit>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+  </PropertyGroup>
 
   <PropertyGroup>
-    <SOLUTION_FOLDER>$(MSBuildThisFileDirectory)../otc-api-sign-sdk-core</SOLUTION_FOLDER>
-    <SOLUTION_NAME>otc-api-sign-sdk-core.sln</SOLUTION_NAME>
-    <VERSIONIZE_PROJECT_NAME>otc-api-sign-sdk-core</VERSIONIZE_PROJECT_NAME>
+    <SOLUTION_FOLDER>$(MSBuildThisFileDirectory)..</SOLUTION_FOLDER>
+    <SOLUTION_NAME>otc-api-sign-sdk.sln</SOLUTION_NAME>
   </PropertyGroup>
 
 
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
-    <SignAssembly Condition=" '$(SignAssembly)' == '' ">true</SignAssembly>
+    <SignAssembly Condition="'$(SignAssembly)' == '' ">true</SignAssembly>
   </PropertyGroup>
 
   <Target Name="full-build"
@@ -27,22 +30,22 @@
   <Target Name="build"
     DependsOnTargets="build-project-packages"></Target>
 
-  <ItemGroup>
-    <LibraryName Include="$(SOLUTION_FOLDER)/src/**/*.csproj" />
-  </ItemGroup>
-
   <Target Name="init">
     <RemoveDir Directories="../Deployment" />
-    <Exec Command="dotnet restore $(SOLUTION_NAME)" WorkingDirectory="$(SOLUTION_FOLDER)" />
+    <Exec Command="dotnet restore $(SOLUTION_NAME)" WorkingDirectory=".." />
   </Target>
 
   <Target Name="build-nuget-packages" DependsOnTargets="init">
     <Exec
       Command="dotnet build $(SOLUTION_NAME) /t:Rebuild /p:Configuration=$(Configuration) /p:AssemblyOriginatorKeyFile=$(AssemblyOriginatorKeyFile) /p:SignAssembly=$(SignAssembly)"
-      WorkingDirectory="$(SOLUTION_FOLDER)" />
+      WorkingDirectory=".." />
     <Exec
-      Command="dotnet pack --no-build -c $(Configuration) -v d -o $(MSBuildThisFileDirectory)../Deployment/nuget-packages"
-      WorkingDirectory="$(SOLUTION_FOLDER)/src" />
+      Command="dotnet pack $(SOLUTION_NAME) \
+        --no-build \
+        --configuration $(Configuration) \
+        --verbosity detailed \
+        --output $(MSBuildThisFileDirectory)../Deployment/nuget-packages"
+      WorkingDirectory=".." />
   </Target>
 
   <Target Name="publish-nuget-local" DependsOnTargets="build-nuget-packages">
@@ -55,17 +58,9 @@
       StdOutEncoding="utf-8" />
   </Target>
 
-
-  <Target Name="versionize" DependsOnTargets="build-nuget-packages">
+  <Target Name="publish-nuget-github" DependsOnTargets="build-nuget-packages">
     <Exec
-      Command="versionize --skip-commit --skip-tag --workingDir $(SOLUTION_FOLDER) --proj-name &quot;$(VERSIONIZE_PROJECT_NAME)&quot;"
-      WorkingDirectory="$(MSBuildProjectDirectory)"
-      StdOutEncoding="utf-8" />
-  </Target>
-
-  <Target Name="publish-nuget-github" DependsOnTargets="versionize">
-    <Exec
-      Command="dotnet nuget push &quot;$(MSBuildThisFileDirectory)../Deployment/nuget-packages/*.nupkg&quot; --source &quot;github-nuget-otc&quot; --skip-duplicate"
+      Command="dotnet nuget push &quot;$(MSBuildThisFileDirectory)../Deployment/nuget-packages/*.nupkg&quot; --source &quot;github&quot; --skip-duplicate"
       WorkingDirectory="$(MSBuildProjectDirectory)"
       StdOutEncoding="utf-8" />
   </Target>

@@ -11,6 +11,9 @@ using System.Text;
 
 namespace OpenTelekomCloud.API.Signing.Core
 {
+  /// <summary>
+  /// HttpRequest represents a HTTP request to be signed
+  /// </summary>
   public class HttpRequest
   {
     public string method;
@@ -21,6 +24,14 @@ namespace OpenTelekomCloud.API.Signing.Core
     public string body = "";
     public string canonicalRequest;
     public string stringToSign;
+
+    /// <summary>
+    /// Initialize HttpRequest
+    /// </summary>
+    /// <param name="method"></param>
+    /// <param name="url"></param>
+    /// <param name="headers"></param>
+    /// <param name="body"></param>
     public HttpRequest(string method = "GET", Uri url = null, WebHeaderCollection headers = null, string body = null)
     {
       if (method != null)
@@ -64,6 +75,10 @@ namespace OpenTelekomCloud.API.Signing.Core
       }
     }
   }
+
+  /// <summary>
+  /// Signer signs HTTP requests with OTC API Signature
+  /// </summary>
   public partial class Signer
   {
     const string BasicDateFormat = "yyyyMMddTHHmmssZ";
@@ -92,17 +107,30 @@ namespace OpenTelekomCloud.API.Signing.Core
       get => secret;
       set => secret = value;
     }
+    /// <summary>
+    /// AccessKey or SecurityAccessKey
+    /// </summary>
     public string Key
     {
       get => key;
       set => key = value;
     }
+    /// <summary>
+    /// SecretKey or SecuritySecretKey
+    /// </summary>
     public string Secret
     {
       get => secret;
       set => secret = value;
     }
 
+    /// <summary>
+    /// <para>
+    /// Security Token for temporary credentials
+    /// </para>
+    /// If set it will be added to signed requests
+    /// as header "X-Security-Token"
+    /// </summary>
     public string SecurityToken
     {
       get => securityToken;
@@ -118,15 +146,22 @@ namespace OpenTelekomCloud.API.Signing.Core
       }
     }
 
-    // Build a CanonicalRequest from a regular request string
-    //
-    // CanonicalRequest =
-    //  HTTPRequestMethod + '\n' +
-    //  CanonicalURI + '\n' +
-    //  CanonicalQueryString + '\n' +
-    //  CanonicalHeaders + '\n' +
-    //  SignedHeaders + '\n' +
-    //  HexEncode(Hash(RequestPayload))
+    /// <summary>
+    /// Build a CanonicalRequest from a regular request string
+    /// 
+    /// <para>
+    /// CanonicalRequest =
+    ///  HTTPRequestMethod + '\n' + <br/>
+    ///  CanonicalURI + '\n' + <br/>
+    ///  CanonicalQueryString + '\n' +<br/>
+    ///  CanonicalHeaders + '\n' +<br/>
+    ///  SignedHeaders + '\n' + <br/>
+    ///  HexEncode(Hash(RequestPayload))<br/>
+    /// </para>
+    /// </summary>
+    /// <param name="r"></param>
+    /// <param name="signedHeaders"></param>
+    /// <returns></returns>
     string CanonicalRequest(HttpRequest r, List<string> signedHeaders)
     {
       string hexencode;

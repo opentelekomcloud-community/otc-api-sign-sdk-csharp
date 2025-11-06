@@ -44,8 +44,10 @@ Installation and Running
 .. code-block:: bash
    :caption: Install and run the sample
 
-   ../../../local-dotnet/dotnet build
+   cd samples-doc/aksksigning/ecs-start
+
+   dotnet build
 
    # Running the sample with framework net6.0
-    ../../../local-dotnet/dotnet run --project ecs-start.csproj --framework net6.0
+   dotnet run --project ecs-start.csproj --framework net6.0
 

@@ -1,4 +1,3 @@
-local-dotnet
 bin/
 obj/
 dotnet-install.sh

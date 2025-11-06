@@ -1,16 +1,3 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <Import Project="..\..\samples-common.props" />
-
-  <!-- <ItemGroup>
-    <PackageReference Include="OpenTelekomCloud.API.Signing.Core" Version="*-*" />
-  </ItemGroup>
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFrameworks>net9.0;net8.0;net6.0;netcoreapp3.1;netcoreapp2.1</TargetFrameworks>
-    <RootNamespace>sdk_request</RootNamespace>
-    <AssemblyName>sdk-request</AssemblyName>
-  </PropertyGroup> -->
-
 </Project>

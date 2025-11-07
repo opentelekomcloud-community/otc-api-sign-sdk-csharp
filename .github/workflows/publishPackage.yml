@@ -1,4 +1,4 @@
-name: publish
+name: publishPackage
 
 on:
   workflow_dispatch:
@@ -33,12 +33,6 @@ jobs:
 
       - name: Publish Package
         run: dotnet nuget push nupkgs/*.nupkg --source $NUGET_SOURCE_URL --api-key $GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
-          NUGET_SOURCE_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
-
-      - name: Publish Symbols
-        run: dotnet nuget push nupkgs/*.snupkg --source $NUGET_SOURCE_URL --api-key $GITHUB_TOKEN
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
           NUGET_SOURCE_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json

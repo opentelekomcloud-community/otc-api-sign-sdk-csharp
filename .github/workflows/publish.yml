@@ -29,6 +29,9 @@ jobs:
             3.1.x
             2.1.x
 
+      - name: Setup
+        run: mkdir -p ${{ runner.temp }}/nuget-local-feed
+
       - name: Build
         run: dotnet build --configuration Release
         env:

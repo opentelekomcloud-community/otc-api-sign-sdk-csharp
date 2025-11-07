@@ -31,7 +31,8 @@ jobs:
 
       - name: Build
         run: dotnet build --configuration Release
-         
+        env:
+          NUGET_LOCAL_FEED_PATH:  ${{ runner.temp }}/nuget-local-feed
 
 
       

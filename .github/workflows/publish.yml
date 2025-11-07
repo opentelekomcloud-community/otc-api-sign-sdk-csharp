@@ -1,5 +1,4 @@
 name: publish
-# This workflow is triggered when tagging
 
 on:
   workflow_dispatch:
@@ -29,13 +28,13 @@ jobs:
             3.1.x
             2.1.x
 
-      - name: Setup
-        run: mkdir -p ${{ runner.temp }}/nuget-local-feed
+      - name: Build Package
+        run: dotnet pack --output nupkgs --include-source --include-symbols --configuration Release
 
-      - name: Build
-        run: dotnet build --configuration Release
+      - name: Publish Package
+        run: dotnet nuget push nupkgs/*.nupkg --source $NUGET_SOURCE_URL --api-key $GITHUB_TOKEN
         env:
-          NUGET_LOCAL_FEED_PATH:  ${{ runner.temp }}/nuget-local-feed
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
+          NUGET_SOURCE_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
 
       

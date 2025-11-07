@@ -2,7 +2,9 @@ bin/
 obj/
 dotnet-install.sh
 build
-# Ignore NuGet Packages
-*.nupkg
 .tox
 Deployment
+# Ignore NuGet Packages
+nupkgs/
+*.nupkg
+*.snupkg

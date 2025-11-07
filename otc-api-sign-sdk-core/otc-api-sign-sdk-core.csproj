@@ -12,7 +12,11 @@
     <!-- Embed source files that are not tracked by the source control manager in the PDB -->
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-    <DebugType>embedded</DebugType>
+    <!-- <DebugType>embedded</DebugType> -->
+    <IncludeSource>true</IncludeSource>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
   </PropertyGroup>
 
@@ -93,8 +97,7 @@
     <RepositoryType>git</RepositoryType>
 
     <RepositoryUrl>https://github.com/opentelekomcloud-community/otc-api-sign-sdk-csharp</RepositoryUrl>
-
-    <IncludeSource>true</IncludeSource>
+   
 
   </PropertyGroup>
 

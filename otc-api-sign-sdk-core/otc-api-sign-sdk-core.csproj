@@ -13,7 +13,6 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
     <DebugType>embedded</DebugType>
-    <GitRepositoryRemoteName>github</GitRepositoryRemoteName>
 
   </PropertyGroup>
 

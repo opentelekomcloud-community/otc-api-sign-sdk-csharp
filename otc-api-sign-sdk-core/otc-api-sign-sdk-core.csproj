@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <!-- https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/sourcelink -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
@@ -10,6 +11,10 @@
 
     <!-- Embed source files that are not tracked by the source control manager in the PDB -->
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <DebugType>embedded</DebugType>
+    <GitRepositoryRemoteName>github</GitRepositoryRemoteName>
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -91,9 +96,6 @@
     <RepositoryUrl>https://github.com/opentelekomcloud-community/otc-api-sign-sdk-csharp</RepositoryUrl>
 
     <IncludeSource>true</IncludeSource>
-
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
   </PropertyGroup>
 

@@ -35,7 +35,7 @@
     <Exec Command="dotnet restore $(SOLUTION_NAME)" WorkingDirectory=".." />
   </Target>
 
-  <Target Name="build-nuget-packages" DependsOnTargets="init">
+  <Target Name="build-nuget-packages" DependsOnTargets="init" Description="Build NuGet packages">
     <Exec
       Command="dotnet build $(SOLUTION_NAME) /t:Rebuild /p:Configuration=$(Configuration) /p:AssemblyOriginatorKeyFile=$(AssemblyOriginatorKeyFile) /p:SignAssembly=$(SignAssembly)"
       WorkingDirectory=".." />
@@ -54,13 +54,6 @@
     <Exec
       Command="dotnet nuget push \
         &quot;$(MSBuildThisFileDirectory)../Deployment/nuget-packages/*.nupkg&quot; --source &quot;$(NUGET_LOCAL_FEED_PATH)&quot;"
-      WorkingDirectory="$(MSBuildProjectDirectory)"
-      StdOutEncoding="utf-8" />
-  </Target>
-
-  <Target Name="publish-nuget-github" DependsOnTargets="build-nuget-packages">
-    <Exec
-      Command="dotnet nuget push &quot;$(MSBuildThisFileDirectory)../Deployment/nuget-packages/*.nupkg&quot; --source &quot;github&quot; --skip-duplicate"
       WorkingDirectory="$(MSBuildProjectDirectory)"
       StdOutEncoding="utf-8" />
   </Target>

@@ -29,7 +29,7 @@ jobs:
             2.1.x
 
       - name: Build Package
-        run: dotnet pack --output nupkgs --include-source --include-symbols --configuration Release
+        run: dotnet pack --output nupkgs /p:ContinuousIntegrationBuild=true --configuration Release
 
       - name: Publish Package
         run: dotnet nuget push nupkgs/*.nupkg --source $NUGET_SOURCE_URL --api-key $GITHUB_TOKEN

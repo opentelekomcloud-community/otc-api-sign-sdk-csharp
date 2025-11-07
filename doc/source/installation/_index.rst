@@ -7,7 +7,60 @@ Installation
 
 The latest state of the module can be installed directly from the GitHub repository.
 
-TBD.
+Install library from GitHub NuGet feed
+--------------------------------------
+
+.. note::
+
+   For details see: `GitHub Documentation <https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry>`_
+
+
+To authenticate to GitHub Packages with the dotnet command-line interface
+(CLI), create a nuget.config file in your project directory specifying
+GitHub Packages as a source under packageSources for the dotnet CLI client.
+
+You must replace:
+
+* USERNAME with the name of your personal account on GitHub.
+* TOKEN with your personal access token (classic).
+
+.. code-block:: xml
+   :caption: NuGet.Config
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+        <packageSources>
+            <clear />
+            <add key="github" value="https://nuget.pkg.github.com/opentelekomcloud-community/index.json" />
+        </packageSources>
+        <packageSourceCredentials>
+            <github>
+                <add key="Username" value="USERNAME" />
+                <add key="ClearTextPassword" value="TOKEN" />
+            </github>
+        </packageSourceCredentials>
+    </configuration>
+
+
+Add or update package reference in the project file using the .NET CLI:
+
+.. code-block:: shell
+   :caption: dotnet add package
+
+    dotnet add package OpenTelekomCloud.API.Signing.Core --version 0.0.0-alpha.0
+
+Alternative add the package reference to your project file:
+
+.. code-block:: xml
+   :caption: YOUR_PROJECT.csproj
+
+    <project Sdk="Microsoft.NET.Sdk">
+
+      <ItemGroup>
+        <PackageReference Include="OpenTelekomCloud.API.Signing.Core" Version="*-*" />
+      </ItemGroup>
+
+    </project>
 
 
 Install dotnet on Ubuntu

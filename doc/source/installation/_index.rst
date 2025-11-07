@@ -44,10 +44,12 @@ You must replace:
 
 Add or update package reference in the project file using the .NET CLI:
 
+(Replace *-* with the desired version number.)
+
 .. code-block:: shell
    :caption: dotnet add package
 
-    dotnet add package OpenTelekomCloud.API.Signing.Core --version 0.0.0-alpha.0
+    dotnet add package OpenTelekomCloud.API.Signing.Core --version *-*
 
 Alternative add the package reference to your project file:
 

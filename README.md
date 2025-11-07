@@ -1,5 +1,5 @@
 # otc-api-sign-sdk-csharp
-SDK for API request signing for C#
+SDK for API request signing for C#.
 
 
 > [!Note]

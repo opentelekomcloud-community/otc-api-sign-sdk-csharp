@@ -88,7 +88,7 @@ namespace OpenTelekomCloud.API.Signing.Core
     const string HeaderAuthorization = "Authorization";
     const string HeaderContentSha256 = "X-Sdk-Content-Sha256";
 
-    const string HeaderSecurityToken = "X-Security-Toke";
+    const string HeaderSecurityToken = "X-Security-Token";
 
     readonly HashSet<string> unsignedHeaders = new HashSet<string> { "content-type" };
 

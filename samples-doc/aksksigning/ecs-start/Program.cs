@@ -29,7 +29,7 @@ namespace DEMO
       signer.Secret = Environment.GetEnvironmentVariable("OTC_SDK_SK");
 
 
-      string projectID = Environment.GetEnvironmentVariable("OTC_SDK_PROJECTID");
+      string projectID = Environment.GetEnvironmentVariable("OTC_SDK_PROJECT_ID");
       string serverID = Environment.GetEnvironmentVariable("ECS_INSTANCE_ID");
 
       string ecs_endpoint = "ecs.eu-de.otc.t-systems.com";
@@ -60,7 +60,7 @@ namespace DEMO
       signer.Key = Environment.GetEnvironmentVariable("OTC_SDK_AK");
       signer.Secret = Environment.GetEnvironmentVariable("OTC_SDK_SK");
 
-      string projectID = Environment.GetEnvironmentVariable("OTC_SDK_PROJECTID");
+      string projectID = Environment.GetEnvironmentVariable("OTC_SDK_PROJECT_ID");
       string serverID = Environment.GetEnvironmentVariable("ECS_INSTANCE_ID");
 
       string ecs_endpoint = "ecs.eu-de.otc.t-systems.com";

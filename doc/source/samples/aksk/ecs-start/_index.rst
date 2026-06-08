@@ -6,10 +6,10 @@ Start ECS using AK/SK signing
    :includehidden:
 
 
-Sample on how to start an ECS instance using an ak/sk request signing.
+Samples on how to start an ECS instance using an ak/sk request signing.
 
 
-For complete source code, see :github_repo_master:`samples-doc/aksksigning/ecs-start<samples-doc/aksksigning/ecs-start>` on GitHub.
+For complete source code, see :github_repo_master:`samples-doc/aksksigning/ecs-start<samples-doc/aksksigning>` on GitHub.
 
 Requirements
 ------------
@@ -44,10 +44,57 @@ Installation and Running
 .. code-block:: bash
    :caption: Install and run the sample
 
-   cd samples-doc/aksksigning/ecs-start
+   # clone the repository
+   git clone https://github.com/opentelekomcloud-community/otc-api-sign-sdk-csharp.git
+
+   # change to root directory of the repository   
+   cd otc-api-sign-sdk-csharp
+
+   cd samples-doc/aksksigning/ecs-start-sync
+   # or
+   cd samples-doc/aksksigning/ecs-start-async
 
    dotnet build
 
-   # Running the sample with framework net6.0
-   dotnet run --project ecs-start.csproj --framework net6.0
+   # Running the sample with framework net8.0
+   dotnet run --project ecs-start-sync.csproj --framework net8.0
+   # or
+   dotnet run --project ecs-start-async.csproj --framework net8.0
 
+
+.. tabs::
+
+   .. tab:: Using: HttpWebRequest
+
+        Request Signing and API Calling using HttpWebRequest
+
+
+        project file
+
+        .. literalinclude:: ../../../../../samples-doc/aksksigning/ecs-start-sync/ecs-start-sync.csproj
+          :language: xml
+          :caption: ecs-start.csproj
+
+        Source code
+        
+
+        .. literalinclude:: ../../../../../samples-doc/aksksigning/ecs-start-sync/Program.cs
+          :language: csharp
+          :caption: Program.cs
+
+   .. tab:: Using: HttpRequestMessage
+
+         Request Signing and API Calling using HttpRequestMessage
+
+
+         project file
+
+         .. literalinclude:: ../../../../../samples-doc/aksksigning/ecs-start-async/ecs-start-async.csproj
+           :language: xml
+           :caption: ecs-start.csproj
+
+         Source code
+
+         .. literalinclude:: ../../../../../samples-doc/aksksigning/ecs-start-async/Program.cs
+           :language: csharp
+           :caption: Program.cs

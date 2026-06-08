@@ -346,7 +346,9 @@ namespace OpenTelekomCloud.API.Signing.Core
       {
         queryString = "?" + queryString;
       }
-      HttpWebRequest req = (HttpWebRequest)WebRequest.Create(r.host + r.uri + queryString);
+#pragma warning disable SYSLIB0014
+      HttpWebRequest req = WebRequest.CreateHttp(r.host + r.uri + queryString);
+#pragma warning restore SYSLIB0014
       string host = null;
       if (r.headers.GetValues(HeaderHost) != null)
       {

@@ -77,6 +77,10 @@ Install dotnet on Ubuntu
 
     mkdir -p ~/dotnet
 
+    ./dotnet-install.sh --channel 10.0 --install-dir ~/dotnet --skip-non-versioned-files
+
+    ./dotnet-install.sh --channel 9.0 --install-dir ~/dotnet --skip-non-versioned-files
+
     ./dotnet-install.sh --channel 8.0 --install-dir ~/dotnet --skip-non-versioned-files
 
     ./dotnet-install.sh --channel 6.0 --install-dir ~/dotnet --skip-non-versioned-files

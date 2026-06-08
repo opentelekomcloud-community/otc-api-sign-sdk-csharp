@@ -10,11 +10,6 @@ Developer guide for otc-api-sign-sdk-csharp
 
 OpenTelekomCloud Community SDK for signing API requests using C#.
 
-.. warning:: 
-
-   Work in progress. Subject to change without notice.
- 
-
 
 Source Code
 -----------

@@ -20,16 +20,17 @@ namespace DEMO
     {
 
       // Generate a new signer and enter the configured environment variables
-      Signer signer = new Signer();
-
-      // Directly writing AK/SK in code is risky.
-      // For security, encrypt your AK/SK and store them in the configuration file or
-      // environment variables.
-      // In this example, the AK/SK are stored in environment variables for identity 
-      // authentication. Before running this example, 
-      // set environment variables OTC_SDK_AK and OTC_SDK_SK.
-      signer.Key = Environment.GetEnvironmentVariable("OTC_SDK_AK");
-      signer.Secret = Environment.GetEnvironmentVariable("OTC_SDK_SK");
+      Signer signer = new Signer
+      {
+        // Directly writing AK/SK in code is risky.
+        // For security, encrypt your AK/SK and store them in the configuration file or
+        // environment variables.
+        // In this example, the AK/SK are stored in environment variables for identity 
+        // authentication. Before running this example, 
+        // set environment variables OTC_SDK_AK and OTC_SDK_SK.
+        Key = Environment.GetEnvironmentVariable("OTC_SDK_AK"),
+        Secret = Environment.GetEnvironmentVariable("OTC_SDK_SK")
+      };
 
       // get project id
       string projectID = Environment.GetEnvironmentVariable("OTC_SDK_PROJECTID");
@@ -44,7 +45,7 @@ namespace DEMO
       // The following example demonstrates how to start an ECS instance.
 
       HttpRequest r = new HttpRequest("POST",
-          new Uri("https://" + ecs_endpoint + "/v1/" + projectID + "/cloudservers/action"));
+          new Uri($"https://{ecs_endpoint}/v1/{projectID}/cloudservers/action"));
 
       // Add other headers required for request signing or other purposes.
       // For example, add the 
@@ -57,7 +58,7 @@ namespace DEMO
       r.headers.Add("Content-Type", "application/json;charset=utf8");
 
       // add the request body. The body must be in JSON format and follow the API specification.
-      r.body = "{\"os-start\": {\"servers\": [ {\"id\": \"" + serverID + "\"}]}}";
+      r.body = $"{{\"os-start\": {{\"servers\": [ {{\"id\": \"{serverID}\"}}]}}}}";
 
       HttpWebRequest req = signer.Sign(r);
       try

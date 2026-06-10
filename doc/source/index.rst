@@ -2,11 +2,13 @@ Developer guide for otc-api-sign-sdk-csharp
 ============================================
 
 .. toctree::
-   :maxdepth: 10
    :hidden:
 
    Installation <installation/_index>
+   Usage <usage/_index>
    Samples <samples/_index>
+   FAQs <faqs/_index>
+   Error Codes <error_codes/_index>
 
 OpenTelekomCloud Community SDK for signing API requests using C#.
 

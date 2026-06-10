@@ -2,7 +2,6 @@ Installation
 ===============
 
 .. toctree::
-   :maxdepth: 4
    :includehidden:
 
 The latest state of the module can be installed directly from the GitHub repository.

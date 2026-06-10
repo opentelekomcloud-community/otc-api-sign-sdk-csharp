@@ -2,7 +2,6 @@ Installation
 ===============
 
 .. toctree::
-   :maxdepth: 4
    :includehidden:
 
 The latest state of the module can be installed directly from the GitHub repository.
@@ -76,6 +75,10 @@ Install dotnet on Ubuntu
     chmod +x ./dotnet-install.sh 
 
     mkdir -p ~/dotnet
+
+    ./dotnet-install.sh --channel 10.0 --install-dir ~/dotnet --skip-non-versioned-files
+
+    ./dotnet-install.sh --channel 9.0 --install-dir ~/dotnet --skip-non-versioned-files
 
     ./dotnet-install.sh --channel 8.0 --install-dir ~/dotnet --skip-non-versioned-files
 

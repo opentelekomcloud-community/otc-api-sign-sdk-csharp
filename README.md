@@ -1,15 +1,6 @@
 # otc-api-sign-sdk-csharp
 SDK for API request signing for C#.
 
-
-> [!Note]
-> <pre>
-> ###############################################
->         Work in progress....
-> ###############################################
-> </pre>
->  
-
 ## Documentation
 
 For documentation see: [otc-api-sign-sdk-csharp](https://opentelekomcloud-community.github.io/otc-api-sign-sdk-csharp/)

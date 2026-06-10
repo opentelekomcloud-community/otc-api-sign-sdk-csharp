@@ -2,14 +2,14 @@ Start ECS using AK/SK signing
 =================================
 
 .. toctree::
-   :maxdepth: 3
    :includehidden:
+   :maxdepth: 10
 
 
-Sample on how to start an ECS instance using an ak/sk request signing.
+Samples on how to start an ECS instance using an ak/sk request signing.
 
 
-For complete source code, see :github_repo_master:`samples-doc/aksksigning/ecs-start<samples-doc/aksksigning/ecs-start>` on GitHub.
+For complete source code, see :github_repo_master:`samples-doc/ecs-start<samples-doc/ecs-start>` on GitHub.
 
 Requirements
 ------------
@@ -44,10 +44,32 @@ Installation and Running
 .. code-block:: bash
    :caption: Install and run the sample
 
-   cd samples-doc/aksksigning/ecs-start
+   # clone the repository
+   git clone https://github.com/opentelekomcloud-community/otc-api-sign-sdk-csharp.git
 
+   # change to root directory of the repository   
+   cd otc-api-sign-sdk-csharp
+
+   cd samples-doc/ecs-start
+   
    dotnet build
 
-   # Running the sample with framework net6.0
-   dotnet run --project ecs-start.csproj --framework net6.0
+   # Running the sample with framework net8.0
+   dotnet run --project ecs-start.csproj --framework net8.0
+   
 
+
+Project file
+-------------------------
+
+.. literalinclude:: ../../../../samples-doc/ecs-start/ecs-start.csproj
+  :language: xml
+  :caption: ecs-start.csproj
+
+Source code
+-------------------------
+
+.. literalinclude:: ../../../../samples-doc/ecs-start/Program.cs
+  :language: csharp
+  :caption: Program.cs
+  

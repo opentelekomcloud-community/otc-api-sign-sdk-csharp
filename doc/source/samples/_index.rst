@@ -2,10 +2,12 @@ Samples
 =================================
 
 .. toctree::
-   :maxdepth: 2
    :includehidden:
+   :maxdepth: 1
 
-   AK/SK signing <aksk/_index>
-   
-
+   Start ECS <ecs-start/_index>   
+   DemoApp Sync <demoapp-sync/_index>
+   DemoApp Async <demoapp-async/_index>
+   DemoApp Large File Upload <demoapp-largefileupload/_index>
+   FunctionGraph signing <functiongraph/_index>
    
